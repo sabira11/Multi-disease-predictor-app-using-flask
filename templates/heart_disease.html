@@ -1,0 +1,48 @@
+{%extends "home_layout.html"%}
+{%block content%}
+
+<head>
+    <link rel='stylesheet' href="{{ url_for('static',filename='style/style.css') }}">
+  </head>
+     
+         
+          
+          
+      
+    
+  
+  
+  
+  <body>
+    <h2 style="text-align:center; font-size: 30px; margin-top: 40px; margin-bottom: 30px; height: 40px;" >Prediction of heart disease</h2>
+    <div class="form-container">
+     
+  
+    <form action="/predict" method='post'>
+    
+    
+    <input type="text" id="age" name="age" placeholder="Age" >
+    
+    <input type="text" id="pain_type" name="pain_type" placeholder="Chest pain type:" >
+    
+    <input type="text" id="bp" name="bp" placeholder="BP">
+   
+    <input type="text" id="Cholesterol" name="Cholesterol" placeholder="Cholesterol">
+  
+    
+    <input type="text" id="fbs" name="fbs" placeholder="FBS over 120">
+    <input type="text" id="EKG" name="EKG" placeholder="EKG">
+    <input type="text" id="ST" name="ST" placeholder="ST depression"><br>
+    <input type="submit" value="Submit">
+    <p class="prediction">{{ prediction_text }} </p>
+  </form> 
+  <br>
+     <br>
+     
+  
+    </div>
+  
+  
+  
+<body>
+    {%endblock%}

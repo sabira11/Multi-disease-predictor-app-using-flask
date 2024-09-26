@@ -1,0 +1,64 @@
+<html>
+<head>
+   
+    <style>
+      /* Basic styling for the table */
+      table {
+        width: 40%;              /* Make the table take up 80% of the width */
+        margin: 20px auto;        /* Center the table horizontally */
+        border-collapse: collapse; /* Remove default spacing between table cells */
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+  
+      th, td {
+        padding: 12px 20px;       /* Add padding inside the cells */
+        border: 1px solid #ddd;   /* Border between table cells */
+        text-align: left;         /* Align text to the left */
+      }
+  
+      /* Style for the table header */
+      th {
+        background-color: #4780a9; /* Green background for header */
+        color: rgb(14, 10, 10);              /* White text for better contrast */
+        font-weight: bold;
+      }
+      td {
+        background-color: #b2bbb3; /* Green background for header */
+        color: rgb(23, 18, 18);              /* White text for better contrast */
+        font-weight: bold;
+      }
+  
+      /* Zebra striping for table rows */
+      tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light gray for alternate rows */
+      }
+  
+      /* Hover effect for table rows */
+      tr:hover {
+        background-color: #ddd;    /* Darker gray on hover */
+      }
+  
+      /* Add some styling for the table itself */
+      table {
+        border-radius: 8px;        /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the table */
+      }
+    </style>
+</head>
+<h2>Final Results</h2>
+
+<body>
+<table border=2>
+ {% for key,value in result.items() %}
+    <tr>
+        {# This is the comment sections #}
+        <th>{{ key }}</th>
+        <td>{{ value }}</td>
+
+    </tr>  
+  {% endfor %}
+</table>
+</body>
+
+</html>
