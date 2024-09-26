@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends "home_layout.html"%}
+{%block content%}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,34 +9,46 @@
 <body>
 
     <div class="form-wrapper">
-        <form>
+        <form action="/predict_diabetics" method='post'>
             <div class="form-container">
                 <div class="input-group">
-                    <label for="field1">Field 1:</label>
-                    <input type="text" id="field1" name="field1" placeholder="First Field">
+                    <label for="Pregnencies">Pregnencies:</label>
+                    <input type="text" id="Pregnencies" name="Pregnencies" placeholder="Number of Pregnencies">
                 </div>
                 <div class="input-group">
-                    <label for="field2">Field 2:</label>
-                    <input type="text" id="field2" name="field2" placeholder="Second Field">
+                    <label for="Glucose">Glucose:</label>
+                    <input type="text" id="glucose" name="glucose" placeholder="Glucose levels  ">
                 </div>
                 <div class="input-group">
-                  <label for="field1">Field 1:</label>
-                  <input type="text" id="field1" name="field1" placeholder="First Field">
+                  <label for="field1">Blood pressure:</label>
+                  <input type="text" id="bp" name="bp" placeholder="in (mm HG)">
               </div>
               <div class="input-group">
-                  <label for="field2">Field 2:</label>
-                  <input type="text" id="field2" name="field2" placeholder="Second Field">
+                  <label for="field2">Skin Thickness:</label>
+                  <input type="text" id="st" name="st" placeholder="in (mm)">
               </div>
               <div class="input-group">
-                <label for="field2">Field 2:</label>
-                <input type="text" id="field2" name="field2" placeholder="Second Field">
+                <label for="field2">Insulin:</label>
+                <input type="text" id="in" name="in" placeholder="2-Hour serum insulin (mu U/ml)">
             </div>
+            <div class="input-group">
+                <label for="field2">BMI:</label>
+                <input type="text" id="bmi" name="bmi" placeholder="in (kg/m2)">
+            </div>
+            <div class="input-group">
+            <label for="field2">Diabetes pedigree function:</label>
+            <input type="text" id="func" name="func" placeholder=" ">
+        </div>
+        <div class="input-group">
+            <label for="field2">Age:</label>
+            <input type="text" id="age" name="age" placeholder=" (years)">
+        </div>
             </div>
             <div class="submit-btn">
                 <input type="submit" value="Submit">
             </div>
+            <p class="prediction">{{ prediction_text }} </p>
         </form>
     </div>
-
-</body>
-</html>
+    <body>
+        {%endblock%}

@@ -90,3 +90,10 @@ input[type="submit"]:hover {
 background-color: #324b80;    /* Darken background on hover */
 box-shadow: 0 0 10px rgba(71, 110, 144, 0.5); /* Add shadow on hover */
 }
+.prediction {
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* You can replace 'Arial' with any other font */
+    font-size: 20px;
+    color: #736d6d; /* Change the color of the text if needed */
+    margin-top: 20px; /* Adds space between the form and the prediction text */
+  }

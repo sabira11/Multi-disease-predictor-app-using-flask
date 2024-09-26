@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Menu Example</title>
+    <title>Disease classification app</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,7 @@
             width: 250px; /* Width of the sidebar */
             position: fixed; /* Fixed position */
             top: 0;
-            left: -250px; /* Hide the sidebar offscreen */
+            left: -270px; /* Hide the sidebar offscreen */
             background-color: #111; /* Background color */
             color: white; /* Text color */
             transition: left 0.3s; /* Smooth transition */
@@ -61,7 +61,7 @@
         <h2>Sidebar Menu</h2>
         <a href="{{ url_for('welcome') }}">Home</a>
         <a href="{{ url_for('heart_disease') }}">hreart disease prediction</a>
-        <a href="#">Services</a>
+        <a href="{{ url_for('diabetics') }}">Diabetics prediction</a>
         <a href="#">Contact</a>
         <a href="#" onclick="toggleSidebar()">Close Menu</a>
     </div>
@@ -75,8 +75,8 @@
             const sidebar = document.getElementById('sidebar');
             const toggleBtn = document.getElementById('toggleBtn');
 
-            if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-200px'; // Hide the sidebar
+            if (sidebar.style.left == '0px') {
+                sidebar.style.left = '-270px'; // Hide the sidebar
                 toggleBtn.classList.remove('hidden'); // Show the button
             } else {
                 sidebar.style.left = '0px'; // Show the sidebar
@@ -91,17 +91,7 @@
             document.getElementById('toggleBtn').classList.add('hidden'); // Hide toggle button
         }
     </script>
-      <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            // Check the current position of the sidebar
-            if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-250px'; // Hide the sidebar
-            } else {
-                sidebar.style.left = '0px'; // Show the sidebar
-            }
-        }
-    </script>
+     
     
 
 
