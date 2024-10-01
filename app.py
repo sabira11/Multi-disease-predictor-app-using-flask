@@ -53,7 +53,7 @@ def predict_diabetics():
         prediction = dia_model.predict(final_features)
         
         output = round(prediction[0], 2)
-        res = "might be Presence" if output == 1 else "Absence"
+        res = "might be Presence" if output == 1 else "might be Absence"
         
         return render_template('diabetics_predict.html', prediction_text=f'Diabetics Prediction test: {res}')
     
