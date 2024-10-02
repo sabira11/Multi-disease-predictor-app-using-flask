@@ -1,0 +1,169 @@
+{%extends "home_layout.html"%}
+{%block content%}
+
+<head>
+    <style>
+    .section{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        /* Aligns the form and the confidence section horizontally */
+       max-width: 1200px;
+       width: 100%;
+    }
+    .container {
+    
+    
+    
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin-left: 200px;
+
+    }
+.confidence-section {
+    
+    margin-left: 40px; /* Space between the form and the confidence scores */
+    max-width: 350px;
+    max-height:200 px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #aeaaaa;
+}
+input[type="file"] {
+    max-width: 400px;
+
+} 
+#imageInput {
+    
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #8fb2e7;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+    color: #0d0d0e;
+    width: 100%;
+    max-width: 400px;
+    font-weight: bold;
+    box-sizing: border-box;
+    
+}
+
+#imagePreview {
+    margin-top: 20px;
+    width: 100%;
+    height: 300px;
+    border: 2px dashed #9b9696;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+}
+
+#previewImg {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+}
+#predictionResult {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    
+    text-align: left;
+}
+#predictButton {
+  margin-top: 20px;             /* Add space above the button */
+  padding: 10px 40px;  
+  font-size: 15px;         /* Padding inside the button */
+  border: 2px solid rgb(62, 103, 174);    /* Border color and thickness */
+  background-color: rgb(109, 122, 196);     /* Button background color */
+  color: rgb(6, 5, 5);                 /* Text color */
+  border-radius: 5px;           /* Rounded corners */
+  cursor: pointer;              /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  width: 100%;                  /* Full width */
+  max-width: 400px;          /* Optional: set a max width */
+  box-sizing: border-box;
+}
+#predictButton:hover {
+    background-color: #218838;
+}
+    </style>
+  </head>
+     
+         
+          
+          
+      
+    
+  
+  
+  
+  <body>
+    <h2 style="text-align:center; font-size: 30px; margin-top: 40px; margin-bottom: 30px; height: 40px;" >Prediction of skin disease</h2>
+   <div class="section">
+    <form class="container" action="/predict_skin_disease" method='post'>
+        <input type="file" id="imageInput" accept="image/*">
+        <div id="imagePreview">
+            <img id="previewImg" src="" alt="Image Preview">
+        </div>
+       
+        <button id="predictButton">Predict</button>
+        <div id="predictionResult">
+            {{ prediction_t }}
+           <p> Confidence value : {{confidence}}</p> 
+        </div>
+ 
+  <br>
+    </form>
+    <div id="confidenceContainer" class="confidence-section">
+        <h3>Confidence Scores</h3>
+        <ul id="confidenceList"></ul>
+    </div>
+    </div>
+ <script>
+        function resetPage() {
+            // Reset file input
+            document.getElementById('imageInput').value = "";
+
+            // Hide the preview image
+            const previewImg = document.getElementById('previewImg');
+            previewImg.src = "";
+            previewImg.style.display = 'none';
+
+            // Clear the prediction result
+            document.getElementById('predictionResult').innerHTML = "";
+        }
+        const imageInput = document.getElementById('imageInput');
+        const previewImg = document.getElementById('previewImg');
+        const predictButton = document.getElementById('predictButton');
+        const predictionResult = document.getElementById('predictionResult');
+
+        // Show the uploaded image in the preview section
+        imageInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImg.src = e.target.result;
+                    previewImg.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewImg.src = '';
+                previewImg.style.display = 'none';
+            }
+        });
+ </script> 
+  
+  
+<body>
+    {%endblock%}

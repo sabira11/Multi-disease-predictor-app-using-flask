@@ -17,6 +17,9 @@ def heart_disease():
 @app.route('/diabetics')
 def diabetics():
     return render_template('diabetics_predict.html')
+@app.route('/skin_disease')
+def skin_disease():
+    return render_template('skin_disease.html')
 @app.route('/predict_heart_disease',methods=['POST'])
 def predict_heart_disease():
     int_features = [float(x) for x in request.form.values()]
@@ -60,6 +63,13 @@ def predict_diabetics():
     except ValueError:
         flash("Invalid input. Please enter valid numeric values.")
         return render_template('diabetics_predict.html')
+
+@app.route('/predict_skin_disease',methods=['POST'])
+def predict_skin_disease():
+    res='melanoma'
+    con=0.95
+
+    return render_template('skin_disease.html', prediction_t='Predicted disease : {}'.format(res),confidence=con)
     
 if __name__=='__main__':
     app.run(debug=True)
