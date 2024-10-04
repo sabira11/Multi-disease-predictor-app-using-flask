@@ -1,7 +1,7 @@
 body {
     height: 100vh; /* Full height of the viewport */
     margin: 0;     /* Remove default margin */
-    background: linear-gradient(135deg, #d9b5b5, #636399); /* Angle and color stops */
+    background: linear-gradient(135deg, #d9b5b5, #9696b7); /* Angle and color stops */
 /* Alternatively: background: linear-gradient(to right, #ff7e5f, #feb47b); */
     background-attachment: fixed; /* Optional: Make the gradient fixed during scroll */
     background-size: cover; /* Ensures the background covers the whole page */

@@ -3,6 +3,33 @@
 
 <head>
     <link rel='stylesheet' href="{{ url_for('static',filename='style/style.css') }}">
+    <style>
+        .page_container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+    }
+    
+
+    .left-section {
+        width: 40%;
+        padding-right: 20px;
+    }
+
+    .right-section {
+        width: 60%;
+        padding-left: 20px;
+    }
+    .section-image {
+        width: 50%;
+    margin-bottom: 100px;
+    margin-top: 20 px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+
+    </style>
   </head>
      
          
@@ -14,22 +41,34 @@
   
   
   <body>
-    <div class="content">
-    <h2 style="text-align:center; font-size: 30px; margin-top: 40px; margin-bottom: 30px; height: 40px;" >Welcome to the multiple disease predictor site</h2>
+    
+    <h2 style="text-align:center; font-size: 30px; margin-top: 40px; margin-bottom: 30px; height: 40px;" > Multiple disease predictor site</h2>
+    <div class="page_container">
+        <div class="left-section">
+            <img src="{{ url_for('static', filename='images/BCC_1.jpg') }}"  class="section-image">
+        </div>
+<div class=" right-section">
+    
     <p  class="styled-paragraph">
         This app is designed to help you predict the likelihood of various diseases using 
         advanced machine learning models. Our goal is to provide accurate and timely predictions for critical conditions such as:
     </p>
     <ul class="styled-paragraph">
         <li><strong>Heart Disease</strong> – Evaluate your risk based on common health indicators like cholesterol levels, blood pressure, and more.</li>
-        <li><strong>Stroke</strong> – Assess factors such as age, medical history, and lifestyle to predict the chances of a stroke.</li>
         <li><strong>Diabetes</strong> – Estimate your likelihood of developing diabetes by analyzing key parameters like glucose levels and BMI.</li>
+        <li><strong>Skin disease detection</strong> –  By uploading a picture of the affected skin area, this app attempts to predict the type of skin disease and provides a confidence score for the prediction. 
+            However, this app is currently limited to predicting only 6 classes of skin diseases, namely:
+            <strong>Benign Keratosis, Melanoma, Melanotic Cell, Basal Cell Carcinoma, Eczema,</strong> and <strong>Actinic Keratosis</strong>.
+        </p></li>
     </ul>
     <p class="styled-paragraph">
         With our user-friendly interface, you can easily input your health data and receive a prediction almost instantly. 
         Our models are designed to be reliable and secure, ensuring your privacy at all times. Start by selecting a disease prediction model below:
     </p>
 </div>
+</div>
+
+
   
   
   
