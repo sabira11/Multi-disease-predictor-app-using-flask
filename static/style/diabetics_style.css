@@ -23,6 +23,7 @@ box-sizing: border-box;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full page height */
+    margin-top: -40px;
 }
 
 .form-container {

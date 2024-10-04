@@ -6,13 +6,13 @@ import tensorflow as tf
 from tensorflow import keras
 #from keras.models import load_model 
 #from keras.layers import Dense
-from tensorflow.python.keras.models import load_model
+#from tensorflow.python.keras.models import load_model
 
 import h5py
 #from keras.models import load_model
 import cv2
-model=load_model("Xception_Net_model_4.h5")
-model._make_predict_function()
+model=tf.keras.models.load_model("skin_model.keras")
+
 hd_model=pickle.load(open('model.pkl','rb'))
 dia_model=pickle.load(open('diabetics_model.pkl','rb'))
 classes=['Atopic Dermatitis','Basal Cell Carcinoma','Benign Keratosis-like Lesions','Eczema','Melanocytic Nevi','Melanoma']
@@ -40,7 +40,8 @@ def processImg(IMG_PATH):
        
         #resized_image = cv2.resize(resized_image, img_size)
         resized_image = resized_image.astype('float32') / 255.0
-        resize_img = np.expand_dims(resized_image, axis=0) 
+        resized_image = np.expand_dims(resized_image, axis=0) 
+        print(resized_image.shape)
         return resized_image
 app=Flask(__name__)
 @app.route('/')
@@ -103,17 +104,23 @@ def predict_diabetics():
 
 @app.route('/predict_skin_disease',methods=['POST'])
 def predict_skin_disease():
-    data = request.files["img"]
-    data.save("img.jpg")
-    Process_img = processImg("img.jpg")
+    image_file = request.files["img"]
+    image_path="./images/"+ image_file.filename
+    image_file.save(image_path)
+    #print(model.summary())
+    Process_img = processImg(image_path)
     pred=model.predict(Process_img)
     predicted_class = np.argmax(pred)
     confidence_score = np.max(pred)
+    confidence_score=round(confidence_score * 100, 2)
     predicted_label = classes[predicted_class]
+    con_scores = [round(score * 100, 2) for score in pred[0]]
+    prediction = list(zip(classes, con_scores))
    
-    con=0.95
+    
 
-    return render_template('skin_disease.html', prediction_t='Predicted disease : {}'.format(predicted_label),confidence=con)
+    return render_template('skin_disease.html', prediction_t='Predicted disease : {}'.format(predicted_label),
+                           confidence=confidence_score,prediction=prediction)
     
 if __name__=='__main__':
     app.run(debug=True)

@@ -34,7 +34,7 @@
     padding: 20px;
     border-radius: 10px;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #aeaaaa;
+    background-color: #c3d4e9;
 }
 input[type="file"] {
     max-width: 400px;
@@ -110,8 +110,8 @@ input[type="file"] {
   <body>
     <h2 style="text-align:center; font-size: 30px; margin-top: 40px; margin-bottom: 30px; height: 40px;" >Prediction of skin disease</h2>
    <div class="section">
-    <form class="container" action="/predict_skin_disease" method='post'>
-        <input type="file" name="img" id="imageInput" accept="image/*">
+    <form class="container" action="/predict_skin_disease" method='post' enctype="multipart/form-data">
+        <input type="file" name="img" id="imageInput" accept="image/*" >
         <div id="imagePreview">
             <img id="previewImg" src="" alt="Image Preview">
         </div>
@@ -119,14 +119,17 @@ input[type="file"] {
         <button id="predictButton">Predict</button>
         <div id="predictionResult">
             {{ prediction_t }}
-           <p> Confidence value : {{confidence}}</p> 
+           <p> Confidence value : {{confidence}}%</p> 
         </div>
  
   <br>
     </form>
     <div id="confidenceContainer" class="confidence-section">
-        <h3>Confidence Scores</h3>
-        <ul id="confidenceList"></ul>
+        <h2>Confidence Score</h2>
+        <br>
+        {% for label, confidence in prediction %}
+        <li>{{ label }}:   {{ confidence }}%</li>
+        {% endfor %}
     </div>
     </div>
  <script>
