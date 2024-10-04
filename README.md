@@ -23,8 +23,8 @@ For skin disease prediction, the model utilizes XceptionNet enhanced with a Conv
 - **Heart Disease Prediction**  
   ![Heart Disease](website_images/heart_disease.png)
 
-- **Diabetes Prediction**  
-  ![Diabetes](website_images/diabetes_prediction.png)
+- **Dibetics Prediction**  
+  ![Dibetics](website_images/dibetics_prediction.png)
 
 - **Skin Disease Prediction**  
-  ![Skin Disease](website_images/skin_disease.png)
+  ![Skin Disease](website_images/skin%20disease.png)
