@@ -6,7 +6,6 @@ This is a simple web application which is designed to predict multiple diseases 
 * User-friendly web interface.
 * For skin disease , Displays prediction results with confidence scores for each skin diseases.
 # Model Details for Each of the Disease
-<br>
 * Heart Disease Prediction
 For heart disease prediction, Support Vector Machine (SVM) model is employed. The model achieved a testing accuracy of 68%. The dataset used for training was sourced from Kaggle and contains only 270 rows, which limits the model's ability to generalize effectively. 
 The accuracy can be improved by expanding the dataset, as a larger dataset would provide more diverse patterns for training, leading to better model performance.
