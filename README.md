@@ -7,8 +7,10 @@ This is a simple web application which is designed to predict multiple diseases 
 * For skin disease , Displays prediction results with confidence scores for each skin diseases.
 # Model Details for Each of the Disease
 * Heart Disease Prediction
+* <br>
 For heart disease prediction, Support Vector Machine (SVM) model is employed. The model achieved a testing accuracy of 68%. The dataset used for training was sourced from Kaggle and contains only 270 rows, which limits the model's ability to generalize effectively. 
 The accuracy can be improved by expanding the dataset, as a larger dataset would provide more diverse patterns for training, leading to better model performance.
 * Dibetics Prediction
+* <br>
 The dataset used for dibetics prediction is *pima indian dibetics dataset* which has 768 rows with 9 feature columns. A several ML model is applied on this dataset and measured the test accuracy. 
 It is found that logistics regression model works better with accuracy of 79%.
